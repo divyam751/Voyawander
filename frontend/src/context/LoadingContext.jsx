@@ -1,6 +1,6 @@
 // LoadingContext.jsx
 import React, { createContext, useContext, useState } from "react";
-import Loader from "../components/Loader/Loader";
+import Spinner from "../components/spinner/Spinner";
 
 // Create a Context for the loading state
 const LoadingContext = createContext();
@@ -18,7 +18,8 @@ export const LoadingProvider = ({ children }) => {
   return (
     <LoadingContext.Provider value={{ startLoading, stopLoading }}>
       {console.log({ isLoading })}
-      {isLoading && <Loader />}
+      {isLoading && <Spinner />}
+
       {children}
     </LoadingContext.Provider>
   );
