@@ -12,7 +12,21 @@ const { paymentRouter } = require("./routes/paymentRoutes");
 const { bookingRouter } = require("./routes/booking.route");
 const { flightRouter } = require("./routes/flight.route");
 
+const helmet = require("helmet");
+
 const app = express();
+
+app.use(
+  helmet({
+    // Apply helmet with CSP configuration
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "https://vercel.live"],
+      },
+    },
+  })
+);
 
 app.use(express.json());
 app.use(cors());
