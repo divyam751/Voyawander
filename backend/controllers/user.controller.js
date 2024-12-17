@@ -125,12 +125,21 @@ const resendOTP = async (req, res) => {
 const checkOTP = async (req, res) => {
   try {
     const { email, otp } = req.body;
+    console.log({ email, otp });
 
-    if (!email || !otp) {
+    if (!email) {
+      return ApiResponse.error(
+        res,
+        ["Required Email!!!"],
+        400,
+        "Email is required!"
+      );
+    }
+    if (!otp) {
       return ApiResponse.error(
         res,
         ["Required OTP!!!"],
-        409,
+        400,
         "OTP is required!"
       );
     }

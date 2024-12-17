@@ -11,6 +11,7 @@ const REDIS_PASSWORD = process.env.REDIS_PASSWORD;
 const REDIS_HOST = process.env.REDIS_HOST;
 const REDIS_PORT = process.env.REDIS_PORT;
 const OTP_VALID_TIME = 600; //OTP valid up to "" in seconds
+const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 
 module.exports = {
   URI,
@@ -24,4 +25,5 @@ module.exports = {
   REDIS_PASSWORD,
   REDIS_PORT,
   OTP_VALID_TIME,
+  STRIPE_SECRET_KEY,
 };
