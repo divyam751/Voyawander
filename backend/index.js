@@ -32,6 +32,10 @@ app.use(express.json());
 app.use(cors());
 app.use(redisMiddleware);
 
+app.get("/", (req, res) => {
+  return res.json({ message: "Welcome to the world of backend!" });
+});
+
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/places", placeRouter);
 app.use("/api/v1/hotels", hotelRouter);
